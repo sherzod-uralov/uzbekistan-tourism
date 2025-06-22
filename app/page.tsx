@@ -9,9 +9,11 @@ import { TourCard } from "@/components/tours/tour-card";
 import { useTours } from "@/hooks/use-tours";
 import { LoadingSpinner } from "@/components/ui/loading-spinner";
 import { ArrowRight, Users, Award, Globe, Star } from "lucide-react";
+import { useCategory } from "@/hooks/use-category";
 
 export default function HomePage() {
   const { data: tours, isLoading } = useTours();
+  const { data: categories } = useCategory();
   const featuredTours = tours?.slice(0, 3) || [];
 
   const stats = [
@@ -19,27 +21,6 @@ export default function HomePage() {
     { icon: Globe, label: "Tours Completed", value: "500+" },
     { icon: Award, label: "Years Experience", value: "15+" },
     { icon: Star, label: "Average Rating", value: "4.9" },
-  ];
-
-  const categories = [
-    {
-      name: "Historical Tours",
-      description: "Explore ancient cities and monuments",
-      image: "/placeholder.svg?height=400&width=600",
-      href: "/tours?category=historical",
-    },
-    {
-      name: "Cultural Tours",
-      description: "Immerse in local traditions and customs",
-      image: "/placeholder.svg?height=400&width=600",
-      href: "/tours?category=cultural",
-    },
-    {
-      name: "Adventure Tours",
-      description: "Thrilling experiences in nature",
-      image: "/placeholder.svg?height=400&width=600",
-      href: "/tours?category=adventure",
-    },
   ];
 
   return (
@@ -141,7 +122,7 @@ export default function HomePage() {
           </motion.div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {categories.map((category, index) => (
+            {categories?.map((category, index) => (
               <motion.div
                 key={category.name}
                 initial={{ opacity: 0, y: 20 }}
@@ -153,7 +134,7 @@ export default function HomePage() {
                 <Card className="border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
                   <div className="relative h-64">
                     <Image
-                      src={category.image || "/placeholder.svg"}
+                      src={category.categoryUrl || "/placeholder.svg"}
                       alt={category.name}
                       fill
                       className="object-cover group-hover:scale-105 transition-transform duration-500"
@@ -173,12 +154,7 @@ export default function HomePage() {
                       variant="outline"
                       className="w-full border-gray-200"
                       asChild
-                    >
-                      <Link href={category.href}>
-                        Explore
-                        <ArrowRight className="ml-2 h-4 w-4" />
-                      </Link>
-                    </Button>
+                    ></Button>
                   </CardContent>
                 </Card>
               </motion.div>

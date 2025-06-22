@@ -412,7 +412,7 @@ export default function TourDetailPage() {
               viewport={{ once: true }}
               className="sticky top-24"
             >
-              <Card className="border border-gray-100 shadow-sm">
+              <Card className="border border-gray-100 shadow-sm bg-white">
                 <CardContent className="p-6">
                   {/* Price */}
                   <div className="text-center mb-6 pb-6 border-b border-gray-100">
