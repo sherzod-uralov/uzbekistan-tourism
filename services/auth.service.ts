@@ -1,3 +1,5 @@
+'use client'
+
 import { apiClient } from "@/lib/axios"
 import type { AuthResponse, LoginData, RegisterData, User } from "@/types"
 
@@ -22,25 +24,38 @@ export const authService = {
     return response.data
   },
 
-  logout() {
-    localStorage.removeItem("auth_token")
-    localStorage.removeItem("user")
+  getToken(): string | null {
+    if (typeof window !== "undefined") {
+      return localStorage.getItem("auth_token")
+    }
+    return null
   },
 
-  getToken(): string | null {
-    return localStorage.getItem("auth_token")
+  logout() {
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("auth_token")
+      localStorage.removeItem("user")
+    }
   },
 
   setToken(token: string): void {
-    localStorage.setItem("auth_token", token)
+    if (typeof window !== "undefined") {
+      localStorage.setItem("auth_token", token)
+    }
   },
 
   getUser(): User | null {
-    const user = localStorage.getItem("user")
-    return user ? JSON.parse(user) : null
+    if (typeof window !== "undefined") {
+      const user = localStorage.getItem("user")
+      return user ? JSON.parse(user) : null
+    }
+    return null
   },
 
   setUser(user: User): void {
-    localStorage.setItem("user", JSON.stringify(user))
+    if (typeof window !== "undefined") {
+      localStorage.setItem("user", JSON.stringify(user))
+    }
   },
+
 }
