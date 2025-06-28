@@ -20,6 +20,7 @@ export function TourCard({ tour, index = 0 }: TourCardProps) {
   const [imageLoaded, setImageLoaded] = useState(false);
   const { data: rating } = useTourRating(tour.id);
 
+
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}

@@ -27,7 +27,7 @@ import {
   Tag,
 } from "lucide-react";
 import { useToursSearch } from "@/hooks/use-tours";
-import { TourCard } from "@/components/tours/tour-card-enxanced";
+import { TourCard } from "@/components/tours/tour-card";
 import { useToursFilters } from "@/hooks/use-tour-filters";
 
 import { TourFiltersSummary } from "@/components/tours/tour-filters-summary";
@@ -97,17 +97,6 @@ export default function ImprovedToursPage() {
       <section className="bg-white border-b shadow-sm sticky top-16 z-40">
         <div className="max-w-7xl mx-auto px-6 py-6">
           {/* Primary Search Bar */}
-          <div className="mb-6">
-            <div className="relative max-w-2xl mx-auto">
-              <Search className="absolute left-4 top-1/2 transform -translate-y-1/2 text-gray-400 h-5 w-5" />
-              <Input
-                placeholder="Search destinations, activities, or tour names..."
-                value={searchInput}
-                onChange={(e) => setSearchInput(e.target.value)}
-                className="pl-12 pr-4 py-3 text-lg border-2 border-gray-200 focus:border-blue-500 focus:ring-0 rounded-xl"
-              />
-            </div>
-          </div>
 
           {/* Quick Filters */}
           <Card className="mb-4">

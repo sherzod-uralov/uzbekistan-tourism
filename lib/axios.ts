@@ -2,7 +2,7 @@ import axios, { type AxiosError, type AxiosResponse } from "axios";
 
 const API_BASE_URL =
   process.env.NEXT_PUBLIC_API_URL ||
-  "https://4bf0-213-230-114-101.ngrok-free.app/api";
+  "https://portfolioo.uz/api";
 
 export const apiClient = axios.create({
   baseURL: API_BASE_URL,
