@@ -503,6 +503,7 @@ export default function TourDetailPage() {
                             Number of people
                           </Label>
                           <Input
+                              disabled={true}
                             id="numberOfPeople"
                             type="number"
                             min="1"
