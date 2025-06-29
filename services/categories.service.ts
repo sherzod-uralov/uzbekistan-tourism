@@ -6,4 +6,8 @@ export const categoriesService = {
     const response = await apiClient.get<Category[]>("/categories");
     return response.data;
   },
+  async getDifficulty(): Promise<any[]> {
+    const response = await apiClient.get<Category[]>("/difficulties");
+    return response.data;
+  },
 };

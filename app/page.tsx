@@ -131,30 +131,25 @@ export default function HomePage() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <Card className="border border-gray-100 shadow-sm hover:shadow-md transition-all duration-300 overflow-hidden">
+                <Card className="border border-gray-200 hover:border-gray-300 transition-all duration-300 overflow-hidden group">
                   <div className="relative h-64">
                     <Image
-                      src={category.categoryUrl || "/placeholder.svg"}
-                      alt={category.name}
-                      fill
-                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        src={category.categoryUrl || "/placeholder.svg"}
+                        alt={category.name}
+                        fill
+                        className="object-cover group-hover:scale-[1.02] transition-transform duration-700 ease-out"
                     />
-                    <div className="absolute inset-0 bg-black/20" />
-                    <div className="absolute bottom-6 left-6 text-white">
-                      <h3 className="text-2xl font-light mb-2">
+
+                  </div>
+                  <CardContent className="p-6 bg-white">
+                    <div className=" bottom-6 left-6 ">
+                      <h3 className="text-xl font-light line-clamp-1 mb-1 tracking-wide">
                         {category.name}
                       </h3>
-                      <p className="text-white/90 text-sm">
+                      <p className="text-sm line-clamp-2 leading-relaxed">
                         {category.description}
                       </p>
                     </div>
-                  </div>
-                  <CardContent className="p-6">
-                    <Button
-                      variant="outline"
-                      className="w-full border-gray-200"
-                      asChild
-                    ></Button>
                   </CardContent>
                 </Card>
               </motion.div>
