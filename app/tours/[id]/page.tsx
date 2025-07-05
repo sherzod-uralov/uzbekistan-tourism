@@ -37,6 +37,7 @@ import { CommentForm } from "@/components/comments/comment-form";
 import { CommentList } from "@/components/comments/comment-list";
 import { RatingSummary } from "@/components/comments/comment-summary";
 import { RatingDisplay } from "@/components/comments/rating-display";
+import AITourismAdvisor from "@/components/tours/ai-review-generator";
 
 export default function TourDetailPage() {
   const params = useParams();
@@ -641,7 +642,7 @@ export default function TourDetailPage() {
           </div>
         </div>
       </div>
-
+      <AITourismAdvisor tourData={tour} />
       {/* Comments Section */}
       <div className="max-w-7xl mx-auto px-6 py-16 border-t border-gray-100">
         <div className="grid lg:grid-cols-3 gap-16">
@@ -675,6 +676,7 @@ export default function TourDetailPage() {
             <CommentForm tourId={tour.id} />
           </div>
         </div>
+
       </div>
     </div>
   );

@@ -24,10 +24,10 @@ export interface Tour {
   startDate: string;
   endDate: string;
   availableSeats: number;
-  category: "historical" | "cultural" | "adventure";
+  category: any;
   isActive: boolean;
   duration: number;
-  difficulty: "easy" | "moderate" | "challenging";
+  difficulty: any;
   includedServices: string;
   excludedServices: string;
   itinerary: string;
